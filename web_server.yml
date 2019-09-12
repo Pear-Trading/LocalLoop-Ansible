@@ -1,0 +1,10 @@
+---
+
+- name: Set up Web Servers
+  hosts: web
+  roles:
+    - perl/install_dependencies
+    - role: swfz.plenv
+      app_user: "{{ local_loop.runtime_user }}"
+      plenv_local_version: "{{ local_loop.perl_version }}"
+      plenv_global_version: "{{ local_loop.perl_version }}"
