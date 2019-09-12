@@ -12,6 +12,7 @@ using Tower/AWX.
 local_loop:
   runtime_user: runtime user
   perl_version: 5.26.3
+  server_branch: master
   db:
     user: username
     password: password

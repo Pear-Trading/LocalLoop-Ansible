@@ -2,5 +2,9 @@
 
 - name: Install Perl Dependencies
   apt:
-    - git
-    - build-essential
+    name:
+      - git
+      - libpq-dev
+      - build-essential
+  become: yes
+  become_user: root

@@ -3,6 +3,7 @@
 - name: Set up Web Servers
   hosts: web
   roles:
+    - db/setup_postgres_apt
     - perl/install_dependencies
     - role: swfz.plenv
       app_user: "{{ local_loop.runtime_user }}"
