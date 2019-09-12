@@ -5,3 +5,4 @@
     name: "{{ local_loop.db.user }}"
     password: "{{ local_loop.db.password }}"
   become: yes
+  become_user: postgres

@@ -6,3 +6,4 @@
     owner: "{{ local_loop.db.user }}"
     state: present
   become: yes
+  become_user: postgres
