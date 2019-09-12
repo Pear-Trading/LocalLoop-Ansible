@@ -1,0 +1,9 @@
+---
+
+- name: Set up PostgreSQL Database
+  hosts: db
+  roles:
+    - db/setup_postgres_apt
+    - db/install_postgres
+    - db/setup_pg_user
+    - db/setup_pg_database
