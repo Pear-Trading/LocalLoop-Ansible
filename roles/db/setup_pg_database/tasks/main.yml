@@ -1,0 +1,7 @@
+---
+
+- name: Create Local Loop Database
+  postgresql_db:
+    name: "{{ local_loop.db.name }}"
+    owner: "{{ local_loop.db.user }}"
+    state: present

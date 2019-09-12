@@ -1,0 +1,8 @@
+---
+
+- name: Install Useful Tools
+  apt:
+    name:
+      - vim
+  become: yes
+  become_user: root

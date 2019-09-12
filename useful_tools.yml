@@ -1,0 +1,6 @@
+---
+
+- name: Install Useful Tools
+  hosts: all
+  roles:
+    - install_tools
