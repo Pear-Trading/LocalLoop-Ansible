@@ -7,9 +7,3 @@
     clone: yes
   become: yes
   become_user: "{{ local_loop.runtime_user }}"
-
-- name: Install Perl Modules
-  cpanm:
-    from_path: ~/Foodloop-Server
-  become: yes
-  become_user: "{{ local_loop.runtime_user }}"
