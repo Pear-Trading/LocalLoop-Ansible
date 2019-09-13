@@ -65,8 +65,8 @@
   become: yes
   changed_when: false
 
-- name: "set global perl"
-  when: item.0.stdout != "1"
+- name: set global perl
+  when: check_version.stdout != "1"
   shell: "~/.plenv/bin/plenv global {{ local_loop.perl_version }}"
   become_user: "{{ local_loop.runtime_user }}"
   become: yes
