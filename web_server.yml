@@ -6,3 +6,4 @@
     - db/setup_postgres_apt
     - perl/install_dependencies
     - perl/install_plenv
+    - web/server_repo
