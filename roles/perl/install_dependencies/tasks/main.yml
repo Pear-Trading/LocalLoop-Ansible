@@ -6,5 +6,6 @@
       - git
       - libpq-dev
       - build-essential
+      - curl
   become: yes
   become_user: root
