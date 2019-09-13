@@ -5,7 +5,4 @@
   roles:
     - db/setup_postgres_apt
     - perl/install_dependencies
-    - role: swfz.plenv
-      app_user: "{{ local_loop.runtime_user }}"
-      plenv_local_version: "{{ local_loop.perl_version }}"
-      plenv_global_version: "{{ local_loop.perl_version }}"
+    - perl/install_plenv
