@@ -9,7 +9,7 @@
   become_user: "{{ local_loop.runtime_user }}"
 
 - name: Install Perl Modules
-  shell: cpanm --installdeps . --with-feature=postgres --with-feature=codepoint-open
+  shell: ~/.plenv/bin/plenv exec cpanm --installdeps . --with-feature=postgres --with-feature=codepoint-open
   args:
     chdir: ~/Foodloop-Server
   become: yes
