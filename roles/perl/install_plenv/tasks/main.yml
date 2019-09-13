@@ -58,7 +58,7 @@
   become_user: "{{ local_loop.runtime_user }}"
   become: yes
 
-- name: "check global version"
+- name: check global version
   shell: "~/.plenv/bin/plenv global | grep {{ local_loop.perl_version }} | wc -l"
   register: check_version
   become_user: "{{ local_loop.runtime_user }}"
@@ -73,7 +73,7 @@
 
 - name: exist cpanm
   stat:
-  path: ~/.plenv/versions/{{ local_loop.perl_version }}/bin/cpanm
+    path: "~/.plenv/versions/{{ local_loop.perl_version }}/bin/cpanm"
   register: exist_cpanm
   become_user: "{{ local_loop.runtime_user }}"
   become: yes
