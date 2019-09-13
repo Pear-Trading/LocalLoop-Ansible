@@ -5,6 +5,7 @@
     repo: https://github.com/Pear-Trading/Foodloop-Server.git
     dest: ~/Foodloop-Server
     clone: yes
+    version: "{{ local_loop.server_branch }}"
   become: yes
   become_user: "{{ local_loop.runtime_user }}"
 
