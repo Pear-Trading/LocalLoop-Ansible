@@ -13,5 +13,7 @@
   shell: ~/.plenv/bin/plenv exec cpanm --installdeps . --with-feature=postgres --with-feature=codepoint-open --quiet
   args:
     chdir: ~/Foodloop-Server
+  register: cpanm_result
+  changed_when: 'cpanm_result.stdout is not ""'
   become: yes
   become_user: "{{ local_loop.runtime_user }}"
