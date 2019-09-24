@@ -9,3 +9,4 @@
     - web/server_repo
     - web/pg_service
     - web/config
+    - web/storage

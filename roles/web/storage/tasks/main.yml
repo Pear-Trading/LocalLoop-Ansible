@@ -1,0 +1,17 @@
+---
+
+- name: Create storage directory
+  file:
+    path: "{{ local_loop.paths.storage }}"
+    state: directory
+    recurse: yes
+  become: yes
+  become_user: "{{ local_loop.runtime_user }}"
+
+- name: Create upload directory
+  file:
+    path: "{{ local_loop.paths.upload }}"
+    state: directory
+    recurse: yes
+  become: yes
+  become_user: "{{ local_loop.runtime_user }}"
