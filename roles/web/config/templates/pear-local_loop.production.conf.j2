@@ -1,0 +1,14 @@
+{
+  dsn => "dbi:Pg:service=local_loop",
+  storage_path => '{{ local_loop.paths.storage }}',
+  upload_path => '{{ local_loop.paths.upload }}',
+  api_keys => {
+    google_maps_js_api => '{{ local_loop.api_keys.google_maps }}',
+  },
+  minion => {
+    Pg => 'postgresql://?service=local_loop_minion',
+  },
+  {% if local_loop.mojo.secret is defined %}
+  secret => '{{ local_loop.mojo.secret }}',
+  {% endif %}
+};

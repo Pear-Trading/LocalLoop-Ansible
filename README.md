@@ -17,6 +17,22 @@ local_loop:
     user: username
     password: password
     name: database name
+    host: db host
+    port: db port
+  minion_db:
+    user: username
+    password: password
+    name: database name
+    host: db host
+    port: db port
+  paths:
+    storage: /path/to/storage/dir
+    upload: /path/to/upload/dir
+  api_keys:
+    google_maps: api key
+  mojo:
+    # optional - application generates random one on boot otherwise
+    secret: secret string here
 ```
 
 # Groups
@@ -25,3 +41,4 @@ The following groups are used in these playbooks:
 
 * all
 * db
+* web

@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+
+[local_loop]
+dbname={{ local_loop.db.name }}
+user={{ local_loop.db.user }}
+password={{ local_loop.db.password }}
+host={{ local_loop.db.host }}
+port={{ local_loop.db.port }}
+
+[local_loop_minion]
+dbname={{ local_loop.minion_db.name }}
+user={{ local_loop.minion_db.user }}
+password={{ local_loop.minion_db.password }}
+host={{ local_loop.minion_db.host }}
+port={{ local_loop.minion_db.port }}

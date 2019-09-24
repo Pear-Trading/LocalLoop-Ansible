@@ -7,3 +7,5 @@
     - perl/install_dependencies
     - perl/install_plenv
     - web/server_repo
+    - web/pg_service
+    - web/config

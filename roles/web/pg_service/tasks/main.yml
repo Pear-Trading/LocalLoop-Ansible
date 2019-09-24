@@ -1,0 +1,9 @@
+---
+
+- name: Setup Pg Service Config
+  template:
+    src: pg_service.conf.j2
+    dest: ~/.pg_service.conf
+    mode: '0600'
+  become: yes
+  become_user: "{{ local_loop.runtime_user }}"

@@ -1,0 +1,8 @@
+---
+
+- name: Setup Main Config File
+  template:
+    src: pear-local_loop.production.conf.j2
+    dest: ~/Foodloop-Server/pear-local_loop.production.conf
+  become: yes
+  become_user: "{{ local_loop.runtime_user }}"
