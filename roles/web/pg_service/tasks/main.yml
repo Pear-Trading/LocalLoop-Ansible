@@ -3,7 +3,7 @@
 - name: Setup Pg Service Config
   template:
     src: pg_service.conf.j2
-    dest: "~/{{ local_loop.runtime_user }}/.pg_service.conf"
+    dest: "~{{ local_loop.runtime_user }}/.pg_service.conf"
     mode: '0600'
     owner: "{{ local_loop.runtime_user }}"
     group: "{{ local_loop.runtime_group }}"
