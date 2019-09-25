@@ -10,3 +10,4 @@
     - web/pg_service
     - web/config
     - web/storage
+    - web/schema_setup

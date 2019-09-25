@@ -51,4 +51,6 @@ The following groups are used in these playbooks:
 # Maintenance notes
 
 We are using pipelining where possible - this means that template, copy, and
- fetch 
+fetch cannot be used directly for non-root users. These must be performed by
+root, with permissions set as needed - see `web/config` and `web/pg_service`
+roles for examples.
