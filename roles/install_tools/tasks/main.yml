@@ -4,5 +4,6 @@
   apt:
     name:
       - vim
+      - postgresql-client
   become: yes
   become_user: root
