@@ -4,6 +4,8 @@
   stat:
     path: "{{ local_loop.runtime.home }}/.localloop-schema-installed"
   register: db_install_check
+  become: yes
+  become_user: "{{ local_loop.runtime.user }}"
 
 - name: Install DB Schema
   shell: "~/.plenv/bin/plenv exec script/deploy_db install -c 'dbi:Pg:service=localloop'"
@@ -11,17 +13,23 @@
     chdir: "{{ local_loop.paths.root }}"
   register: db_install
   when: db_install_check.stat.exists == False
+  become: yes
+  become_user: "{{ local_loop.runtime.user }}"
 
 # Runs after the install, so should only happen when the command succeeds
 - name: Set DB Deployed Checkfile
   file:
     path: "{{ local_loop.runtime.home }}/.localloop-schema-installed"
     state: touch
-    mode: 0440
+    mode: 0444
   when: db_install_check.stat.exists == False
+  become: yes
+  become_user: "{{ local_loop.runtime.user }}"
 
 - name: Upgrade DB Schema
   shell: "~/.plenv/bin/plenv exec script/deploy_db upgrade -c 'dbi:Pg:service=localloop'"
   args:
     chdir: "{{ local_loop.paths.root }}"
   when: db_install_check.stat.exists == True
+  become: yes
+  become_user: "{{ local_loop.runtime.user }}"
