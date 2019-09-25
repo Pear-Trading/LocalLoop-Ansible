@@ -10,8 +10,10 @@ using Tower/AWX.
 
 ```yaml
 local_loop:
-  runtime_user: runtime user
-  runtime_group: runtime group
+  runtime:
+    user: runtime user
+    group: runtime group
+    home: /path/to/runtime/home
   perl_version: 5.26.3
   server_branch: master
   db:

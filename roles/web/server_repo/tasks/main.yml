@@ -7,7 +7,7 @@
     clone: yes
     version: "{{ local_loop.server_branch }}"
   become: yes
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
 
 - name: Install Perl Modules
   shell: ~/.plenv/bin/plenv exec cpanm --installdeps . --with-feature=postgres --with-feature=codepoint-open --quiet
@@ -16,4 +16,4 @@
   register: cpanm_result
   changed_when: cpanm_result.stdout != ""
   become: yes
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"

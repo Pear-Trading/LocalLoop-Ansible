@@ -4,6 +4,6 @@
   template:
     src: pear-local_loop.production.conf.j2
     dest: "{{ local_loop.paths.root }}/pear-local_loop.production.conf"
-    owner: "{{ local_loop.runtime_user }}"
-    group: "{{ local_loop.runtime_group }}"
+    owner: "{{ local_loop.runtime.user }}"
+    group: "{{ local_loop.runtime.group }}"
   become: yes

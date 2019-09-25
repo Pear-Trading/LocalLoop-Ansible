@@ -8,7 +8,7 @@
     path: ~/.plenv/bin/plenv
   register: exist_plenv
   become: yes
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
   changed_when: false
 
 - name: install plenv
@@ -18,14 +18,14 @@
     dest: ~/.plenv
     clone: yes
   become: yes
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
 
 - name: exist perl build
   stat:
     path: ~/.plenv/plugins/perl-build
   register: exist_perl_build
   become: yes
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
   changed_when: false
 
 - name: install perl build
@@ -35,7 +35,7 @@
     dest: ~/.plenv/plugins/perl-build
     clone: yes
   become: yes
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
 
 - name: set profile.d
   template:
@@ -48,39 +48,39 @@
 - name: exist version
   shell: "~/.plenv/bin/plenv versions | grep {{ local_loop.perl_version }} | wc -l"
   register: exist_version
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
   become: yes
   changed_when: false
 
 - name: install perl
   when: exist_version.stdout == "0"
   shell: "~/.plenv/bin/plenv install {{ local_loop.perl_version }}"
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
   become: yes
 
 - name: check global version
   shell: "~/.plenv/bin/plenv global | grep {{ local_loop.perl_version }} | wc -l"
   register: check_version
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
   become: yes
   changed_when: false
 
 - name: set global perl
   when: check_version.stdout != "1"
   shell: "~/.plenv/bin/plenv global {{ local_loop.perl_version }}"
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
   become: yes
 
 - name: exist cpanm
   stat:
     path: "~/.plenv/versions/{{ local_loop.perl_version }}/bin/cpanm"
   register: exist_cpanm
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
   become: yes
   changed_when: false
 
 - name: install cpanm
   when: exist_cpanm.stat.exists == false
   shell: "~/.plenv/bin/plenv install-cpanm"
-  become_user: "{{ local_loop.runtime_user }}"
+  become_user: "{{ local_loop.runtime.user }}"
   become: yes
