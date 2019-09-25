@@ -4,5 +4,6 @@
   template:
     src: pear-local_loop.production.conf.j2
     dest: ~/Foodloop-Server/pear-local_loop.production.conf
+    owner: "{{ local_loop.runtime_user }}"
+    group: "{{ local_loop.runtime_group }}"
   become: yes
-  become_user: "{{ local_loop.runtime_user }}"
