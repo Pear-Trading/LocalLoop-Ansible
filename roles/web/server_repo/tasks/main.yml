@@ -12,7 +12,7 @@
 - name: Install Perl Modules
   shell: ~/.plenv/bin/plenv exec cpanm --installdeps . --with-feature=postgres --with-feature=codepoint-open --quiet
   args:
-    chdir: ~/Foodloop-Server
+    chdir: "{{ local_loop.paths.root }}"
   register: cpanm_result
   changed_when: cpanm_result.stdout != ""
   become: yes
