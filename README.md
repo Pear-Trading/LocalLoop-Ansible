@@ -11,6 +11,7 @@ using Tower/AWX.
 ```yaml
 local_loop:
   runtime_user: runtime user
+  runtime_group: runtime group
   perl_version: 5.26.3
   server_branch: master
   db:
@@ -26,6 +27,8 @@ local_loop:
     host: db host
     port: db port
   paths:
+    # These should all be absolute paths
+    root: /path/to/application/root
     storage: /path/to/storage/dir
     upload: /path/to/upload/dir
   api_keys:
@@ -42,3 +45,8 @@ The following groups are used in these playbooks:
 * all
 * db
 * web
+
+# Maintenance notes
+
+We are using pipelining where possible - this means that template, copy, and
+ fetch 

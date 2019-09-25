@@ -3,7 +3,7 @@
 - name: Setup Main Config File
   template:
     src: pear-local_loop.production.conf.j2
-    dest: ~/Foodloop-Server/pear-local_loop.production.conf
+    dest: "{{ local_loop.paths.root }}/pear-local_loop.production.conf"
     owner: "{{ local_loop.runtime_user }}"
     group: "{{ local_loop.runtime_group }}"
   become: yes

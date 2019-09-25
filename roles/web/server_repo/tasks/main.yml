@@ -3,7 +3,7 @@
 - name: Clone Local Loop Server Repo
   git:
     repo: https://github.com/Pear-Trading/Foodloop-Server.git
-    dest: ~/Foodloop-Server
+    dest: "{{ local_loop.paths.root }}"
     clone: yes
     version: "{{ local_loop.server_branch }}"
   become: yes
