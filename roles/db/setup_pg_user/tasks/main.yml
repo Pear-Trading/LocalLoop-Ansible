@@ -1,8 +1,8 @@
 ---
 
-- name: Create Local Loop User
+- name: Create Postgres User
   postgresql_user:
-    name: "{{ local_loop.db.user }}"
-    password: "{{ local_loop.db.password }}"
+    name: "{{ user.user }}"
+    password: "{{ user.password }}"
   become: yes
   become_user: postgres

@@ -5,5 +5,15 @@
   roles:
     - db/setup_postgres_apt
     - db/install_postgres
-    - db/setup_pg_user
-    - db/setup_pg_database
+    - role: db/setup_pg_user
+      vars:
+        user: "{{ local_loop.db }}"
+    - role: db/setup_pg_user
+      vars:
+        user: "{{ local_loop.minion_db }}"
+    - role: db/setup_pg_database
+      vars:
+        db: "{{ local_loop.db }}"
+    - role: db/setup_pg_database
+      vars:
+        db: "{{ local_loop.minion_db }}"
