@@ -8,7 +8,7 @@
   become_user: "{{ local_loop.runtime.user }}"
 
 - name: Install DB Schema
-  shell: "~/.plenv/bin/plenv exec perl script/deploy_db install -c 'dbi:Pg:service=localloop'"
+  shell: "~/.plenv/bin/plenv exec perl script/deploy_db install -c 'dbi:Pg:service=local_loop'"
   args:
     chdir: "{{ local_loop.paths.root }}"
   register: db_install
@@ -27,7 +27,7 @@
   become_user: "{{ local_loop.runtime.user }}"
 
 - name: Upgrade DB Schema
-  shell: "~/.plenv/bin/plenv exec perl script/deploy_db upgrade -c 'dbi:Pg:service=localloop'"
+  shell: "~/.plenv/bin/plenv exec perl script/deploy_db upgrade -c 'dbi:Pg:service=local_loop'"
   args:
     chdir: "{{ local_loop.paths.root }}"
   when: db_install_check.stat.exists == True
